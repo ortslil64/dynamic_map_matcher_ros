@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-<launch>
-
-<include file="$(find sequential_map_merging)/launch/empty_world.launch" >
-  <arg name="world_name" value="$(find sequential_map_merging)/worlds/model2.world"/>
-</include>
-
-</launch>

@@ -2,12 +2,12 @@
 <launch>
 
 <!-- Launch robot -->
-<include file="$(find sequential_map_merging)/launch/empty_world.launch" >
-  <arg name="world_name" value="$(find sequential_map_merging)/worlds/map10_world/model.sdf"/>
+<include file="$(find dynamic_map_matcher_ros)/launch/empty_world.launch" >
+  <arg name="world_name" value="$(find dynamic_map_matcher_ros)/demo/worlds/map10_world/model.sdf"/>
 </include>
 
-<rosparam file="$(find sequential_map_merging)/config/sequential_map_matcher.yaml" />
-<node pkg="sequential_map_merging" type="map_matcher_node.py" name="tmap_matcher_node" output="screen"/>
+<rosparam file="$(find dynamic_map_matcher_ros)/demo/config/sequential_map_matcher.yaml" />
+<node pkg="dynamic_map_matcher_ros" type="map_matcher_node.py" name="tmap_matcher_node" output="screen"/>
 
 <group ns="ABot1">
 <param name="tf_prefix" value="/ABot1" />
@@ -19,7 +19,7 @@
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
   </node>
-<param name="/ABot1/robot_description" command="$(find xacro)/xacro '$(find sequential_map_merging)/urdf/ABot.urdf.xacro'" />
+<param name="/ABot1/robot_description" command="$(find xacro)/xacro '$(find dynamic_map_matcher_ros)/demo/urdf/ABot.urdf.xacro'" />
   <!-- push ABot_description to factory and spawn robot in gazebo -->
   <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x 16.2 -y -16.5 -Y 2.88 -urdf -model ABot1 -param /ABot1/robot_description" respawn="false" output="screen" />
 
@@ -62,7 +62,7 @@
 </node>
 
 <!--- Run Move Base -->
-   <include file="$(find sequential_map_merging)/move_base/move_base_ABot1.launch"/>
+   <include file="$(find dynamic_map_matcher_ros)/demo/move_base/move_base_ABot1.launch"/>
 
 <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="log">
   <param name="robot_base_frame" value="/ABot1/base_link"/>
@@ -91,7 +91,7 @@
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
   </node>
-<param name="/ABot2/robot_description" command="$(find xacro)/xacro '$(find sequential_map_merging)/urdf/ABot.urdf.xacro'" />
+<param name="/ABot2/robot_description" command="$(find xacro)/xacro '$(find dynamic_map_matcher_ros)/demo/urdf/ABot.urdf.xacro'" />
   <!-- push ABot_description to factory and spawn robot in gazebo -->
   <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x -9.6 -y -15.5 -Y -1.5707 -urdf -model ABot2 -param /ABot2/robot_description" respawn="false" output="screen" />
 
@@ -134,7 +134,7 @@
 </node>
 
 <!--- Run Move Base -->
-   <include file="$(find sequential_map_merging)/move_base/move_base_ABot2.launch"/>
+   <include file="$(find dynamic_map_matcher_ros)/demo/move_base/move_base_ABot2.launch"/>
 
 <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="log">
   <param name="robot_base_frame" value="/ABot2/base_link"/>
@@ -154,8 +154,8 @@
 
 
 <!-- Launch Rviz with config file  -->
-<node type="rviz" name="rviz1" pkg="rviz" args="-d $(find sequential_map_merging)/rviz/viz1.rviz" />
-<node type="rviz" name="rviz2" pkg="rviz" args="-d $(find sequential_map_merging)/rviz/viz2.rviz" />
+<node type="rviz" name="rviz1" pkg="rviz" args="-d $(find dynamic_map_matcher_ros)/demo/rviz/viz1.rviz" />
+<node type="rviz" name="rviz2" pkg="rviz" args="-d $(find dynamic_map_matcher_ros)/demo/rviz/viz2.rviz" />
 
 
 

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>sequential_map_merging</name>
+  <name>dynamic_map_matcher_ros</name>
   <version>0.0.0</version>
-  <description>sequential map merging</description>
+  <description>sequential map merging algorithm for ros</description>
 
   <maintainer email="ortslil64@gmail.com">Or</maintainer>  
 

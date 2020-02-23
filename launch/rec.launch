@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-<launch>
-
-<node pkg="rosbag" type="play" name="player1" output="screen" args="--clock $(find sequential_map_merging)/maps/map5.bag"/>
-
-
-
-</launch>
