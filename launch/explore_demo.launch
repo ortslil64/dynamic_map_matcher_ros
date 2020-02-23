@@ -3,7 +3,7 @@
 
 <!-- Launch robot -->
 <include file="$(find dynamic_map_matcher_ros)/launch/empty_world.launch" >
-  <arg name="world_name" value="$(find dynamic_map_matcher_ros)/demo/worlds/map10_world/model.sdf"/>
+  <arg name="world_name" value="$(find dynamic_map_matcher_ros)/demo/worlds/map5_world/model.world"/>
 </include>
 
 <rosparam file="$(find dynamic_map_matcher_ros)/demo/config/sequential_map_matcher.yaml" />
@@ -21,7 +21,7 @@
   </node>
 <param name="/ABot1/robot_description" command="$(find xacro)/xacro '$(find dynamic_map_matcher_ros)/demo/urdf/ABot.urdf.xacro'" />
   <!-- push ABot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x 16.2 -y -16.5 -Y 2.88 -urdf -model ABot1 -param /ABot1/robot_description" respawn="false" output="screen" />
+  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x 1.2 -y -7.0 -Y 0.0 -urdf -model ABot1 -param /ABot1/robot_description" respawn="false" output="screen" />
 
 
 <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
@@ -93,7 +93,7 @@
   </node>
 <param name="/ABot2/robot_description" command="$(find xacro)/xacro '$(find dynamic_map_matcher_ros)/demo/urdf/ABot.urdf.xacro'" />
   <!-- push ABot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x -9.6 -y -15.5 -Y -1.5707 -urdf -model ABot2 -param /ABot2/robot_description" respawn="false" output="screen" />
+  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x 9 -y -2 -Y 1.5707 -urdf -model ABot2 -param /ABot2/robot_description" respawn="false" output="screen" />
 
 
 <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
@@ -156,6 +156,7 @@
 <!-- Launch Rviz with config file  -->
 <node type="rviz" name="rviz1" pkg="rviz" args="-d $(find dynamic_map_matcher_ros)/demo/rviz/viz1.rviz" />
 <node type="rviz" name="rviz2" pkg="rviz" args="-d $(find dynamic_map_matcher_ros)/demo/rviz/viz2.rviz" />
+<node type="rviz" name="rviz_global" pkg="rviz" args="-d $(find dynamic_map_matcher_ros)/demo/rviz/viz_global.rviz" />
 
 
 

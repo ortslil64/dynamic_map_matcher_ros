@@ -1,8 +1,8 @@
 sequential_map_matcher:
  origin_map: '/ABot1/map'
  target_map: '/ABot2/map'
- n_particles: 500
- n_observation: 500
+ n_particles: 1000
+ n_observation: 1000
  n_history: 5
  n_theta: 50
  n_x: 20
