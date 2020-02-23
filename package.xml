@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>dynamic_map_matcher_ros</name>
-  <version>0.0.0</version>
+  <version>0.0.1</version>
   <description>sequential map merging algorithm for ros</description>
+  <url>http://wiki.ros.org/dynamic_map_matcher</url>
+    <author>Or Tslil</author>
+    <author>ortslil64@gmail.com</author>
 
   <maintainer email="ortslil64@gmail.com">Or</maintainer>  
 
@@ -23,6 +26,22 @@
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
+
+    <depend>diagnostic_updater</depend>
+    <depend>dynamic_reconfigure</depend>
+    <depend>geometry_msgs</depend>
+    <depend>nav_msgs</depend>
+    <depend>rosbag</depend>
+    <depend>roscpp</depend>
+    <depend>sensor_msgs</depend>
+    <depend>std_srvs</depend>
+    <depend>tf2</depend>
+    <depend>tf2_msgs</depend>
+    <depend>tf2_ros</depend>
+
+<test_depend>move_base</test_depend>
+<test_depend>hector_mapping</test_depend>
+<test_depend>explore_lite</test_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
